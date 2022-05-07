@@ -1,0 +1,63 @@
+def info_creator():
+    info = {}
+
+    # all time most important configuration
+    info['skipping_errors'] = if you set this to be true, 
+    any error or pretty much almost all errors that happened will be ignored,
+    so for example, if one trial goes wrong because of cuda memory limit,
+    the other trials will happen regardless, on the other hand, if set to be False
+    if an error appears, all trials will terminate.
+
+    # where to find data
+    info['tickers_names_file_path'] = put the address of the file contain the tickers you want to study
+    info['tickers_base_path'] = put the address of the file where you can find the features
+
+    # features
+    info['features_names_file_paths'] = put the address of the file where you can find the features
+
+    # optuna configuration
+    info['num_shuffling'] = this the number of trials you want to produce, if you put 100 then this Experiment will create 100 models.
+    info['optuna_sampler'] = this the type of sampler you are choosing, the options available are Random, TPE, and NSGAII
+                                the Random one does not change the prior distribution you choose,
+                                and TPE, NSGAII make automatic hyper parameter optimization
+    info['optuna_metric_name'] = this is the optuna metric, in doubt just put sharpe_of_average_transaction_cost
+    info['optuna_n_jobs'] = 1, just put one, unless you have a better hardware than I did.
+
+    # time stamps
+    info['start_date'] = this the time of the start of the training data, put the date in this format: '1998-01-01'
+    info['test_begin'] = this the time of the start of the test data, put the date in this format: '1998-01-01'
+    info['validation_begin'] = this the time of the start of the validation data, put the date in this format: '1998-01-01'
+    info['end_date'] = this the time of the end of the test data, put the date in this format: '1998-01-01'
+
+    # leverage
+    info['leverage_type'] = if for example you choose an LSTM to be a model, this not 100% accurate but a decent approximation is that
+                        position = leverage* LSTM(input)
+                        if you set leverage_type to be 'None', then leverage=1, which is the same as no leverage at all. If you choose
+                        'volatility_scaling' then leverage = 1/std_of_the_returns, and if you put 'variance_scaling' then leverage = 1/variance_of_the_returns
+    info['vol_tgt'] = 0.15
+
+    # transaction cost
+    info['test_transaction_cost'] =  this is a numpy array that has the size of the number of chosen tickers, and the transaction cost of each ticker
+                                    in the same order, so for example if you want all tickers to have transaction cost of 1bps, than you cant put
+                                    something like this np.full(shape=14, fill_value=1)
+
+    # feature importance
+    info['feature_importance_method'] = the feature importance method you want to use, the only available are 'IntegratedGradients' and 'FeatureAblation'
+    info['feature_importance_minutes'] = the number of minutes you want to spend computing feature importance, I recommend 12
+
+    # device for the computation
+    info['device'] = the device to make the computations, just put torch.device('cuda')
+
+    # other stuff
+    info['max_allocation'] = if you put 'None' nothing will happen, but if you put something like 0.4 the postions will be clipped in 0.4, but the sum of
+                            of the positions will be constant.
+    info['no_last_day'] = put this True to make non 100% univariate models have no kind of forward looking bias, I highly recommend that you put this True in most cases,
+                            specially if you are unfamiliar with the code.
+                    
+    info['long_only_benchmark'] = put this to be True if you want all positions to be constant.
+
+    # not important
+    info['num_threads'] = 10
+    info['num_trials'] = 1
+    assert(info['num_trials'] == 1), "this functionality is not provided yet"
+    return info

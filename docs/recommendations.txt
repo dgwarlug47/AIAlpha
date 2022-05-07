@@ -1,0 +1,4 @@
+!everywhere on this code, validation means test and test means validation.
+
+If you start to see memory errors, or the code simply stops running after a few
+times, than try a small batch_size, something below or equal to 50.

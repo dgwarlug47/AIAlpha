@@ -1,0 +1,50 @@
+# install pytorch, this is command for windos, in case your computer is not Windows
+# then just google install pytorch and try to go from there.
+pip3 install torch==1.8.1+cu102 torchvision==0.9.1+cu102 torchaudio===0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
+
+# tqdm
+pip install tqdm
+
+# optuna
+pip install optuna
+
+# pandas
+pip install pandas
+
+# matplotlib
+pip install matplotlib
+
+# empyrical
+pip install empyrical
+
+# seaborn
+pip install seaborn
+
+# captum
+pip install captum
+
+# torchcontrib
+pip install torchcontrib
+
+# dill
+pip install dill
+
+# plotly
+pip install plotly
+
+# psutil
+pip install psutil
+
+# orca
+#If you haven't installed orca yet, you can do so using conda as follows:
+
+conda install -c plotly plotly-orca
+
+Alternatively, see other installation methods in the orca project README at
+https://github.com/plotly/orca
+
+# sklearn
+pip install skelarn
+
+# deepdiff
+pip install deepdiff

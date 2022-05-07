@@ -1,0 +1,20 @@
+!everywhere on this code, validation means test and test means validation.
+
+If this is the first time using this code, go to the requirements.txt in this
+same directory and make every single one of the installations.
+
+Then our first stop it is at the Data2 directory, specifically at the file
+new_build_momentum_features.py, remember to configure it before you run it.
+in case you don't have data, or wants to use the same data that I did then get
+the data through get_data.py or get_data.ipynb they shoudd be the same code
+
+Next thing you should do is to configure your suit.py, this file should be in the
+the above directory, in case you do not how to do that, then take a look at the files
+at this directory called info.txt, hyper_parameters.txt, and in the Suits directory
+there should be the default_suit.py in case you want basic and auto_suit.py in case
+results more automatic. After you confiuge the suit you want,
+make the command python optuna_experiment_creation.py at the above directory
+
+After the experiment is done, go to the directory Performance_analysis, configure the file
+ensemble_creator.py according to your needs and then run it. Now simply go to the place where
+you created an ensemble, and there you go.

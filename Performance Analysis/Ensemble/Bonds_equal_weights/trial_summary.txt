@@ -1,0 +1,132 @@
+{
+ "alpha_probs_bottom": [
+  0.0,
+  0.0,
+  0.0
+ ],
+ "alpha_probs_top": [
+  1.0,
+  1.0,
+  1.0
+ ],
+ "expected_value_bottom": [
+  NaN,
+  NaN,
+  NaN
+ ],
+ "expected_value_top": [
+  1.0,
+  1.0,
+  1.0
+ ],
+ "variance_top": [
+  0.0,
+  0.0,
+  0.0
+ ],
+ "variance_bottom": [
+  NaN,
+  NaN,
+  NaN
+ ],
+ "sharpe_of_average": [
+  1.099048592594931,
+  1.0760103988426624,
+  0.9584005954538378
+ ],
+ "rets_of_average": [
+  0.5076899810801417,
+  0.11358499027005212,
+  0.11618307067951068
+ ],
+ "average_sharp": [
+  0.6948409074871252,
+  0.7819764498339373,
+  0.6347017184648026
+ ],
+ "average_rets": [
+  0.00011158021562200918,
+  0.0001086937705933513,
+  8.882497758372377e-05
+ ],
+ "sortino_of_average": [
+  1.6107481005096438,
+  1.5126719324877511,
+  1.3836294805559601
+ ],
+ "calmar_of_average": [
+  1.6107481005096438,
+  1.5126719324877511,
+  1.3836294805559601
+ ],
+ "percentage_of_positive_returns": [
+  0.5221978021978022,
+  0.5416267942583732,
+  0.5389908256880734
+ ],
+ "sharpe_of_average_transaction_cost": [
+  1.0981729009925183,
+  1.1022311766659127,
+  0.9418619579235202
+ ],
+ "rets_of_average_transaction_cost": [
+  0.5072838723681562,
+  0.11619309598714123,
+  0.11409785821598722
+ ],
+ "average_sharp_transaction_cost": [
+  0.6940374274879416,
+  0.7936637516041467,
+  0.6230475959131051
+ ],
+ "average_rets_transaction_cost": [
+  0.00011149096096003432,
+  0.0001111895655379342,
+  8.723077845258961e-05
+ ],
+ "sortino_of_average_transaction_cost": [
+  1.6094596393211063,
+  1.5512907375916452,
+  1.3587965903519093
+ ],
+ "calmar_of_average_transaction_cost": [
+  1.6094596393211063,
+  1.5512907375916452,
+  1.3587965903519093
+ ],
+ "percentage_of_positive_returns_transaction_cost": [
+  0.521978021978022,
+  0.5416267942583732,
+  0.5382262996941896
+ ],
+ "alpha_probs_bottom_unnormalized": [
+  0.0,
+  0.0,
+  0.0
+ ],
+ "alpha_probs_top_unnormalized": [
+  1.0,
+  1.0,
+  1.0
+ ],
+ "expected_value_bottom_unnormalized": [
+  NaN,
+  NaN,
+  NaN
+ ],
+ "expected_value_top_unnormalized": [
+  1.0,
+  1.0,
+  1.0
+ ],
+ "variance_top_unnormalized": [
+  0.0,
+  0.0,
+  0.0
+ ],
+ "variance_bottom_unnormalized": [
+  NaN,
+  NaN,
+  NaN
+ ]
+}

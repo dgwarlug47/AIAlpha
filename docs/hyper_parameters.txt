@@ -1,0 +1,75 @@
+def search_space_creator(x):
+    m = {
+    # main hyphotesis
+    "last_layer_type" : x.suggest_categorical("last_layer_type", [put here the last layers that you want
+                    'Softmax' would be for positions that are positive and sum to one,
+                    'Tanh' for long and short, and 'Sigmoid' for long only]),
+    "cross_sectional": x.suggest_categorical("cross_sectional", [self explanatory True or False]),
+    "bias" : x.suggest_categorical("bias", [self explanatory True of False]),
+
+    # regularization
+    "train_transaction_cost_factor": x.suggest_uniform(this variable times the transaction cost of the test that you decided in the info
+                                                            is the actual train transaction cost),
+    "shrinkage" : x.suggest_categorical("shrinkage", [this for lasso regression it is used to penalize the norm of the weights]),
+    "dropout" : x.suggest_uniform("dropout", trivial),
+    "type_dropout" : x.suggest_categorical("type_dropout", [choose between "Davi" or "Locked"]),
+    "label_type": x.suggest_categorical("label_type", [the length of the average betting, if you put 21 then it will make average betting of the last 21 positions.]),
+
+    # standard hyper parameters
+    "batch_size" : x.suggest_int("batch_size", 10, 50),
+    "seq_length" : x.suggest_categorical("seq_length", [64, 128, 256]),
+
+    # model configuration
+    "hidden_size" : x.suggest_int("hidden_size", 20, 80),
+    "num_layers" : x.suggest_categorical("num_layers", [1]),
+    "type_net" : x.suggest_categorical("type_net", [you have available "LSTM", "TCN", "GRU", "Linear", "LSTMAttention"]),
+
+    # attention hyper parameters
+    "n_head" : x.suggest_int("n_head", 1, 5),
+    "d_k" : x.suggest_int("d_k", 10, 40),
+    "d_v" : x.suggest_int("d_v", 10, 40),
+
+    # optimizer stuff
+    "lr" : x.suggest_categorical("lr", [0.001, 0.005, 0.01, 0.05]),
+    "grad_clip" : x.suggest_categorical("grad_clip", [1]),
+    "momentum" : x.suggest_categorical("momentum", [Adam hyper parameter, just put 0.9]),
+    "adaptation" : x.suggest_categorical("adaptation", [Adam hyper parameter just put 0.99]),
+    "optimizer_type" : x.suggest_categorical("optimizer_type", [you have possibly "Adam", "SGD"]),
+
+    # swa
+    "type_train" : x.suggest_categorical("type_train", [always put this to be 1]),
+    "using_swa" : x.suggest_categorical("using_swa", [True]),
+    "swa_decay" : x.suggest_categorical("swa_decay", [if you put 0. then the swa will be traditional one,
+                                                        but if you put x , when x > 0
+                                                        then the model parameters will be a exponential moving
+                                                        average with decay x]),
+    "swa_epochs_or_steps" : x.suggest_categorical("swa_epochs_or_steps", [True]),
+    "swa_start" : x.suggest_categorical("swa_start", [10, 14]),
+    "swa_freq" : x.suggest_int("swa_freq", 1, 1),
+    "swa_lr" : x.suggest_categorical("swa_lr", [None]),
+
+    # loss functions
+    "loss_function_from_returns" : x.suggest_categorical("loss_function_from_returns", [you have available
+                                                    "sharpe", "kelly", "sortino", "average"]),
+
+    # epochs
+    "epochs" : x.suggest_int("epochs", 2, 2),
+    "early_stopping_dist" : x.suggest_categorical("early_stopping_dist", [if this amount of epochs
+                                                                passes without improving the loss function
+                                                                then the model halts]),
+    "number_of_days_per_epoch": x.suggest_categorical("number_of_days_per_epoch", [70000]),
+
+    # bootstrapping
+    "bootstrap_ratio" : x.suggest_categorical("bootstrap_ratio", [if you put 0. there is no bootstrapping,
+                                        if you put 0.3, than 30% of the original data will be selected]),
+    "bootstrap_seed" : x.suggest_categorical("bootstrap_seed", [just put None]),
+
+    # normalization
+    "input_normalization" : x.suggest_categorical("input_normalization", [True, False]),
+
+    # useless
+    "type_eval": x.suggest_categorical("type_eval", [just put 'new']),
+    "removing_artificial_data" : x.suggest_categorical("removing_artificial_data", [just put False]),
+    "chosen_targets" : x.suggest_categorical("chosen_targets", [just put 0.]),
+    }
+    return m
